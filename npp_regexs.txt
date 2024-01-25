@@ -1,0 +1,31 @@
+find: '\w*'
+repl: where reason_spec = $&\r\n -- $& entire match
+
+('A010','B030'
+
+(where reason_spec = 'A010'
+,where reason_spec = 'B030'
+
+-------------------------------------------------------
+Remove blank lines ^\s*$\r?\n
+	^ - start of line
+	
+Replace start to '@'
+find: ^.*(\@)
+replace: \t\1 -- tab and what was captured
+
+Get from the start to the '=' and copy to the end of the line w/comma ','
+    (^.*)( = .*)
+	\1\2\1,
+
+UPPERCASE
+find: (and)
+replace: \U$1
+
+changed dateadd and datename to uppercase
+find: (date\w*\b)
+replace: \U$1
+
+
+non greedy match - ?
+\[(LSC.*?)\] finds LSC_FORMS,LSC_APPS and so on. 
